@@ -49,7 +49,7 @@ function start(){round=0;score=0;streak=0;answered=false;render()}
 function render(){
  if(round>=questions.length){end();return}
  const x=questions[round]; const opts=shuffle(x.opts);
- game.innerHTML='<div class="hero" style="background-image:url("'+x.image+'")"><div class="q"><small>Kierros '+(round+1)+' / '+questions.length+'</small><h1>Mikä vesistö tässä on?</h1></div></div><div class="content"><div class="answers">'+opts.map(o=>'<button class="answer" data-answer="'+o+'">'+o+'</button>').join("")+'</div><div id="feedback"></div><button class="next" id="next">Seuraava →</button><div class="stats"><div class="stat">Pisteet<b id="s2">'+score+'</b></div><div class="stat">Putki<b id="streak">'+streak+'</b></div><div class="stat">Paras putki<b>'+best+'</b></div></div></div>';
+ game.innerHTML='<div class="hero" style="background-image:url(\''+x.image+'\')"><div class="q"><small>Kierros '+(round+1)+' / '+questions.length+'</small><h1>Mikä vesistö tässä on?</h1></div></div><div class="content"><div class="answers">'+opts.map(o=>'<button class="answer" data-answer="'+o+'">'+o+'</button>').join("")+'</div><div id="feedback"></div><button class="next" id="next">Seuraava →</button><div class="stats"><div class="stat">Pisteet<b id="s2">'+score+'</b></div><div class="stat">Putki<b id="streak">'+streak+'</b></div><div class="stat">Paras putki<b>'+best+'</b></div></div></div>';
  game.querySelectorAll(".answer").forEach(b=>b.onclick=()=>answer(b,x.type));
  scoreEl.textContent=score;
 }
